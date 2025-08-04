@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أقم</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <h1 class="hero__title">أقم</h1>
+      <p class="hero__description">أوقات الصلاة في مدينتك</p>
+    </header>
+    <main class="main">
+      <div class="city">
+        <form action="">
+          <input type="text" id="city" class="city__input" placeholder="ادخل اسم مدينتك" />
+          <button type="submit" class="city__button">اختر</button>
+        </form>
+      </div>
+      <div class="prayers">
+        <div class="prayers__current">
+          <h1 class="current__title">المغرب</h1>
+          <h2 class="current__time">19:52</h2>
+        </div>
+
+        <div class="timer-section">
+          <h3 class="timer-title">الوقت المتبقي للصلاة القادمة</h3>
+          <div class="timer-display">
+            <div class="timer-unit">
+              <span class="timer-number" id="seconds">35</span>
+              <span class="timer-label">ثانية</span>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number" id="minutes">40</span>
+              <span class="timer-label">دقيقة</span>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number" id="hours">01</span>
+              <span class="timer-label">ساعة</span>
+            </div>
+          </div>
+          <p class="next-prayer-info">حتى صلاة العشاء</p>
+        </div>
+        <div class="prayers__list">
+          <div id="prayer-time">
+          </div>
+          <div class="day-separator">
+            <span class="day-separator__text">غداً</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="scripts.js"></script> 
+</html>

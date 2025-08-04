@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+  min-height: 100vh;
+  direction: rtl;
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.hero__title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #f0f8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+}
+
+.hero__description {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.city {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.city form {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.city__input {
+  flex: 1;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.city__input:hover{
+  box-shadow: 0 5px 40px rgba(255, 222, 210, 0.4);
+  transform: scale(1.02);
+
+}
+
+.city__input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 40px rgba(255, 222, 210, 0.4);
+}
+
+.city__input::placeholder {
+  color: #666666b2;
+}
+
+.city__button {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 8px 32px rgba(238, 90, 36, 0.3);
+}
+
+.city__button:hover {
+  /* transform: translateY(-3px); */
+  box-shadow: 0 12px 40px rgba(238, 90, 36, 0.4);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+  transform: scale(1.04);
+
+}
+
+.city__button:active {
+  transform: scale(0.95);
+}
+
+.prayers {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prayers__current {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 5px solid #ffd700;
+  border-left: 5px solid #ffd700;
+}
+
+.timer-section {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.timer-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.timer-unit {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  min-width: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.timer-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffd700;
+  font-family: 'Courier New', monospace;
+  display: block;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.next-prayer-info {
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.current__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.current__time {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #ffd700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  font-family: 'Courier New', monospace;
+}
+
+.prayers__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.prayers__next {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.prayers__next:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.day-separator {
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.day-separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.day-separator__text {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffd700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.prayers__name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.prayers__time {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #ffd700;
+  font-family: 'Courier New', monospace;
+}
+
+        @media (max-width: 768px) {
+  .hero__title {
+    font-size: 3rem;
+  }
+
+  .city form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .city__input,
+  .city__button {
+    width: 100%;
+  }
+
+  .prayers__list {
+    gap: 1rem;
+  }
+
+  .current__time {
+    font-size: 2.5rem;
+  }
+
+  .prayers__next {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .timer-display {
+    gap: 1rem;
+  }
+
+  .timer-unit {
+    min-width: 70px;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .timer-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 1rem 0.5rem;
+  }
+
+  .prayers {
+    padding: 1.5rem;
+  }
+
+  .prayers__current {
+    padding: 1.5rem;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .timer-section {
+    padding: 1.5rem;
+  }
+
+  .timer-display {
+    gap: 0.8rem;
+  }
+
+  .timer-unit {
+    min-width: 60px;
+    padding: 0.6rem 1rem;
+  }
+
+  .timer-number {
+    font-size: 1.3rem;
+  }
+
+  .timer-label {
+    font-size: 0.8rem;
+  }
+}
