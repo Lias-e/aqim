@@ -1,8 +1,3 @@
-import { injectSpeedInsights } from '@vercel/speed-insights';
-injectSpeedInsights();
-
-// --------------------------------------------------------------------
-
 const form = document.querySelector('form');
 const cityInput = document.getElementById('city');
 
