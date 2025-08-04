@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>أقم</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.si =
+        window.si ||
+        function () {
+          (window.siq = window.siq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
   </head>
   <body>
     <header class="hero">
@@ -14,7 +22,12 @@
     <main class="main">
       <div class="city">
         <form action="">
-          <input type="text" id="city" class="city__input" placeholder="ادخل اسم مدينتك" />
+          <input
+            type="text"
+            id="city"
+            class="city__input"
+            placeholder="ادخل اسم مدينتك"
+          />
           <button type="submit" class="city__button">اختر</button>
         </form>
       </div>
@@ -43,8 +56,7 @@
           <p class="next-prayer-info">حتى صلاة العشاء</p>
         </div>
         <div class="prayers__list">
-          <div id="prayer-time">
-          </div>
+          <div id="prayer-time"></div>
           <div class="day-separator">
             <span class="day-separator__text">غداً</span>
           </div>
@@ -52,5 +64,5 @@
       </div>
     </main>
   </body>
-  <script src="scripts.js"></script> 
+  <script src="scripts.js"></script>
 </html>
