@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>أقم</title>
     <link rel="stylesheet" href="styles.css" />
-    <script>
-      window.si =
-        window.si ||
-        function () {
-          (window.siq = window.siq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
   </head>
   <body>
     <header class="hero">
@@ -21,14 +13,18 @@
     </header>
     <main class="main">
       <div class="city">
-        <form action="">
-          <input
+        <form action="" id="cityForm">
+          <button class="city__button" type="submit" id="cityAuto">
+            أرسل موقعك
+          </button>
+
+          <!-- <input
             type="text"
             id="city"
             class="city__input"
             placeholder="ادخل اسم مدينتك"
           />
-          <button type="submit" class="city__button">اختر</button>
+          <button type="submit" class="city__button">اختر</button> -->
         </form>
       </div>
       <div class="prayers">
@@ -64,5 +60,5 @@
       </div>
     </main>
   </body>
-  <script src="scripts.js"></script>
+  <script type="module" src="scripts.js"></script>
 </html>

@@ -1,5 +1,6 @@
-const form = document.querySelector('form');
+const cityForm = document.getElementById('cityForm');
 const cityInput = document.getElementById('city');
+const cityAuto = document.getElementById('cityAuto');
 
 const today = new Date();
 const startDay = today.getDate();
@@ -15,34 +16,58 @@ const endMonth = end.getMonth() + 1;
 const endYear = end.getFullYear();
 const endDate = `${endDay}-${endMonth}-${endYear}`;
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const city = cityInput.value.trim();
-    const apiURL = `https://api.aladhan.com/v1/calendarByCity/from/${startDate}/to/${endDate}?city=${city}&country=Algeria&shafaq=general&calendarMethod=UAQ`
-    fetch(apiURL)
-        .then(response => response.json())
-        .then(data => {
-            
-            // find today's prayer time
+// -------------------------------------------------
+// Geo location
+// -------------------------------------------------
 
-            const todayData = data.data[0]; 
-            const timings = todayData.timings;
-
-            const prayerDiv = document.getElementById('prayer-time');
-            prayerDiv.innerHTML ='';
-
-            for (const [prayer, time] of Object.entries(timings)){
-                const div = document.createElement('div');
-                div.innerHTML = `<div class="prayers__next"><h2 class="prayers__name">${prayer}</h2><h2 class="prayers__time">${time}</h2></div>`;
-                prayerDiv.appendChild(div)
+function getUserLocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                resolve({ lat, lon });
+            },
+            (error) => {
+                reject(error);
             }
-
-        })
-        .catch(error => {
-            console.log("API Error:", error);
-        });
+        );
+    });
 }
-);
+
+
+// -------------------------------------------------
+
+cityForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    try {
+        const { lat, lon } = await getUserLocation();
+
+        const apiURL = `https://api.aladhan.com/v1/calendar/from/${startDate}/to/${endDate}?latitude=${lat}&longitude=${lon}&shafaq=general&calendarMethod=UAQ`;
+
+        const response = await fetch(apiURL);
+        const data = await response.json();
+
+        const todayData = data.data[0];
+        const timings = todayData.timings;
+
+        const prayerDiv = document.getElementById('prayer-time');
+        prayerDiv.innerHTML = '';
+
+        for (const [prayer, time] of Object.entries(timings)) {
+            const div = document.createElement('div');
+            div.innerHTML = `<div class="prayers__next"><h2 class="prayers__name">${prayer}</h2><h2 class="prayers__time">${time}</h2></div>`;
+            prayerDiv.appendChild(div)
+        }
+
+    }
+    catch (error) {
+        console.error('Error fetching prayer times:', error);
+        alert("Failed to get prayer times. Please check your internet connection.");
+    }
+
+});
 
 // --------------------------UI: Prayers List------------------------------------
 
